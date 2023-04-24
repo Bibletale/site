@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<head>
+<meta charset="utf-8"> 
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="style.css?11">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Itim&family=Titan+One&display=swap" rel="stylesheet">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script async type="text/javascript" src="https://static.klaviyo.com/onsite/js/klaviyo.js?company_id=TwYLPN"></script>
+
+
+</head><body>
+
+<div class="hero">
+  <div class="gradient"></div>
+  <div class="clouds"></div>
+  <div class="background"></div>
+  <div class="character">
+    <img class="tail" src="img/character-lion-tail.png" />
+    <img class="leg left back" src="img/character-lion-leg-left-back.png" />
+    <img class="leg left front" src="img/character-lion-leg-left-front.png" />
+    <img class="body" src="img/character-lion-body.png" />
+    <img class="leg right back" src="img/character-lion-leg-right-back.png" />
+    <img class="leg right front" src="img/character-lion-leg-right-front.png" />
+    <img class="head" src="img/character-lion-head.png" />
+  </div>
+
+  <div class="content">
+    <div class="header">
+      <div class="menu">
+        <a href="#" class="current">Home</a>
+        <a href="#">About</a>
+        <a href="#">Support</a>
+      </div>
+      <div class="social">
+        Let's be friends!
+        <a target="_blank" href="https://facebook.com/bibletale"><img src="img/icon-facebook.png" /></a>
+        <a target="_blank" href="https://instagram.com/bibletale"><img src="img/icon-instagram.png" /></a>
+      </div>
+    </div>
+
+    <a class="logo"><img src="img/bible-tale-logo.png" /></a>
+    <h1>Discover the Holy Land</h1>
+    <p>The game where biblical stories come to life! <br>Make your kids fall in love with scripture and Land of the bible.</p>
+    <div class="klaviyo-form-VMbsdB"></div>
+    <!-- <div class="button"><span>Play Now</span></div> -->
+  </div>
+</div>
+
+
+<div class="map">
+  <h2>Your Adventure Awaits</h2>
+  <p style="margin: 0 auto;max-width: 750px;">Embark on a journey that walks in the footsteps of Jesus, bringing the cities, landscapes and archeology of the Holy Land to life.</p>
+  <img src="img/bible-tale-game-map.png?3" />
+</div>
+
+<div class="features">
+  <h2>Learn and Grow</h2>
+  <div class="grid">
+    <div class="feature">
+      <img src="img/feature-cross.png" />
+      <p><b>Faith</b> – rooted in faith and designed to help connect with the stories and scripture of the Bible in a way that is both meaningful and enjoyable.</p>
+    </div>
+    <div class="feature">
+      <img src="img/feature-cross.png" />
+      <p><b>Discovery</b> - designed to provide an engaging and educational experience, introducing them to the rich history, Holy Sites, and biblical locations of the Holy Land.</p>
+    </div>
+    <div class="feature">
+      <img src="img/feature-cross.png" />
+      <p><b>Fun</b> - learning should be fun! BibleTale is designed to be interactive and entertaining, making it easy for them to fall in love with the stories of the Bible.</p>
+    </div>
+    <div class="feature">
+      <img src="img/feature-cross.png" />
+      <p><b>Imagination</b> - we believe in the power of imagination. BibleTale sparks kids' imaginations and takes them on a Bible adventure.</p>
+    </div>
+  </div>
+</div>
+
+<div class="quotes">
+  <div class="quote">
+    <img class="picture" src="img/quote-person-1.png" />
+    <!-- <img class="stars" src="img/5-stars.png" /> -->
+    <p>“Finally a game that I’m happy for my kids to play!”</p>
+    <div class="name">Jenny McDonalds</div>
+    <div class="title">Mom of 6</div>
+  </div>
+
+  <div class="quote">
+    <img class="picture" src="img/quote-person-1.png" />
+    <!-- <img class="stars" src="img/5-stars.png" /> -->
+    <p>“Finally a game that I’m happy for my kids to play!”</p>
+    <div class="name">Jenny McDonalds</div>
+    <div class="title">Mom of 6</div>
+  </div>
+
+  <div class="quote">
+    <img class="picture" src="img/quote-person-1.png" />
+    <!-- <img class="stars" src="img/5-stars.png" /> -->
+    <p>“Finally a game that I’m happy for my kids to play!”</p>
+    <div class="name">Jenny McDonalds</div>
+    <div class="title">Mom of 6</div>
+  </div>
+</div>
+
+
+<script>
+
+
+
+xOffset = 0
+$('body').on('mousemove', (e) => {
+  xOffset = e.clientX - (window.innerWidth/2)
+
+  mouseOffset = 50 - (e.clientX / window.innerWidth * 100)
+
+  $('.hero .background').css('transform','translateX('+mouseOffset/10+'vw)')
+});
+
+
+setInterval(function() {
+  if (  Math.round(heroX()/50) ==  Math.round(xOffset/50) ) { 
+    $('.character').removeClass('walking')
+    return 
+  }
+
+  $('.character').addClass('walking')
+
+  if ( xOffset < heroX() &&  heroX()*1.1 > -window.innerWidth/2 ) {
+    $('.character').css('transform','translateX(' + (heroX()-20) + 'px)')
+    .find('img').css('transform','scaleX(-1)')
+  } else if (  heroX()*1.1 < window.innerWidth/2 ) {
+    $('.character').css('transform','translateX(' + (heroX()+20) +'px)')
+    .find('img').css('transform','scaleX(1)')
+  }
+}, 100)
+
+
+function heroX() {
+    return $($('.hero .character')).css('transform').split(',')[4].replace(' ','')*1
+}
+
+</script>
+</body>
+</html>
